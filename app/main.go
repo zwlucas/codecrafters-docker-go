@@ -34,7 +34,8 @@ func main() {
 	}
 
 	cmd.SysProcAttr = &syscall.SysProcAttr{
-		Chroot: tmpDir,
+		Chroot:     tmpDir,
+		Cloneflags: syscall.CLONE_NEWPID,
 	}
 
 	err = cmd.Run()
